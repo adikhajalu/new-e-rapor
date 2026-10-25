@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Contoh: akses /feature/student_list akan diarahkan ke student_list.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^student_list$ student_list.php [L,QSA]
+
+# Untuk subject_list
+RewriteRule ^subject_list$ subject_list.php [L,QSA]
+
+# Tambahkan rule lain sesuai kebutuhan
