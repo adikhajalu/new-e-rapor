@@ -120,7 +120,7 @@ $query_detil       = "SELECT B.*,
                                         AND UPPER(NILAI.TAHUN_PELAJARAN) = UPPER('$v_tahun_pelajaran')
                                         AND EXISTS (
                                         SELECT 1 FROM tb_mapel MPL
-                                        WHERE MPL.ID_MAPEL = NILAI.ID_MAPEL AND MPL.ID_KATEGORI_MAPEL = (SELECT X.ID_KATEGORI_MAPEL FROM tb_kategori_mapel X WHERE X.TAHUN_PELAJARAN = '$v_tahun_pelajaran' AND UPPER(X.NAMA_KATEGORI_MAPEL) NOT LIKE '%KEJURUAN%')
+                                        WHERE MPL.ID_MAPEL = NILAI.ID_MAPEL AND MPL.ID_KATEGORI_MAPEL IN (SELECT X.ID_KATEGORI_MAPEL FROM tb_kategori_mapel X WHERE X.TAHUN_PELAJARAN = '$v_tahun_pelajaran' AND UPPER(X.NAMA_KATEGORI_MAPEL) NOT LIKE '%KEJURUAN%')
                                         ) 
                                         GROUP BY NILAI.ID_MAPEL
                                 ) Z
